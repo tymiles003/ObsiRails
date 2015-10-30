@@ -56,3 +56,9 @@ gem 'devise'
 
 # Truncator
 gem 'html_truncator'
+
+# Pagination
+gem 'kaminari'
+
+# Font Awesome
+gem 'font-awesome-sass'

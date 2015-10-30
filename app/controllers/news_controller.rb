@@ -9,12 +9,12 @@ class NewsController < ApplicationController
   def index
     if user_signed_in?
       if current_user.role.name == "Admin"
-        @news = News.all
+        @news = News.all.page params[:page]
       else
-        @news = News.all.where(:published => true)
+        @news = News.all.where(:published => true).page params[:page]
       end
     else
-      @news = News.all.where(:published => true)
+      @news = News.all.where(:published => true).page params[:page]
     end
   end
 

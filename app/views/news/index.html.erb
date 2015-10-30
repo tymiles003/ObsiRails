@@ -27,6 +27,8 @@
     </article>
     <% end %>
     
+    <%= paginate @news %>
+    
   </main>
   
   <% @latest_news = News.limit(3).order(created_at: :desc).where(:published => true) %>

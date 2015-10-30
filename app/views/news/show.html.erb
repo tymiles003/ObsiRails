@@ -1,17 +1,33 @@
-<p>
-  <strong>Title:</strong>
-  <%= @news.title %>
-</p>
+<div class="divider divider-centered">
+  <h2>News</h2>
+</div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @news.body %>
-</p>
+<section class="news">
+  
+  <main>
+    <% if user_signed_in? %>
+      <div class="admin">
+        <%= link_to 'Edit', edit_news_path(@news) %> |
+        <%= link_to 'Back', news_index_path %>
+      </div>
+    <% end %>
+    <article>
+      <h1><%= link_to @news.title, @news %></h1>
+      <em>By (author) on <%= link_to @news.created_at.to_formatted_s(:long), @news %></em>
+      <%= @news.body.html_safe %>
+    </article>
 
-<p>
-  <strong>Published:</strong>
-  <%= @news.published %>
-</p>
+    <div class="divider divider-mini"></div>
+    <div class="prev-next">
+      
+      <div><% if @news.prev %><i class="fa fa-arrow-left"></i><%= link_to "Prev", @news.prev %><% end %></div>
+      <div><% if @news.next %><%= link_to "Next", @news.next %><i class="fa fa-arrow-right"></i><% end %></div>
+      
+    </div>
 
-<%= link_to 'Edit', edit_news_path(@news) %> |
-<%= link_to 'Back', news_index_path %>
+  </main>
+    
+  <% @latest_news = News.limit(3).order(created_at: :desc).where(:published => true) %>
+  <%= render 'latest_news', :latest_news => @latest_news %>
+    
+</section>
