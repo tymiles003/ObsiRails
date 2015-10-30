@@ -37,6 +37,7 @@ class NewsController < ApplicationController
   def create
     @news = News.new(news_params)
     @news.preview = HTML_Truncator.truncate(@news.body, 100, :length_in_chars => true)
+    @news.user = current_user
 
     respond_to do |format|
       if @news.save
