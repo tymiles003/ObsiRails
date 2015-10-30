@@ -45,5 +45,11 @@ group :development do
   gem 'spring'
 end
 
+
+# Rich Text Editor
 gem 'paperclip'
 gem 'ckeditor'
+
+# Authentication and Authorization
+gem 'cancan'
+gem 'devise'
