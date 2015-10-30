@@ -5,15 +5,20 @@
 <section class="news">
   
   <main>
+    
+    <% if user_signed_in? %>
     <div class="admin"><%= link_to 'New News', new_news_path %></div>
+    <% end %>
     
     <% @news.each do |news| %>
     
+    <% if user_signed_in? %>
     <div class="admin">
         <%= link_to 'Show', news %>
         <%= link_to 'Edit', edit_news_path(news) %>
         <%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
+    <% end %>
     
     <article>
       <%= link_to news.title, news %>
