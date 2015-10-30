@@ -53,3 +53,6 @@ gem 'ckeditor'
 # Authentication and Authorization
 gem 'cancan'
 gem 'devise'
+
+# Truncator
+gem 'html_truncator'

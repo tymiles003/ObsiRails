@@ -3,7 +3,7 @@
   <h1>Latest News</h1>
   <% @latest_news.each do |news| %>
     <%= link_to news.title, news %>
-    <p><%= truncate(strip_tags(news.body), length: 100, escape: false) %></p>
+    <p><%= strip_tags(news.preview) %></p>
     <em><%= news.created_at.to_formatted_s(:long) %></em>
   <% end %>
 </div>

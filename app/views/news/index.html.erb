@@ -24,7 +24,7 @@
     
   </main>
   
-  <% @latest_news = News.limit(3).order(created_at: :desc) %>
+  <% @latest_news = News.limit(3).order(created_at: :desc).where(:published => true) %>
   <%= render 'latest_news', :latest_news => @latest_news %>
   
 </section>

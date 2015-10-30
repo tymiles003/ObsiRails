@@ -1,3 +1,4 @@
+require "html_truncator"
 class NewsController < ApplicationController
   load_and_authorize_resource
   before_action :set_news, only: [:show, :edit, :update, :destroy]
@@ -6,7 +7,15 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.all
+    if user_signed_in?
+      if current_user.role.name == "Admin"
+        @news = News.all
+      else
+        @news = News.all.where(:published => true)
+      end
+    else
+      @news = News.all.where(:published => true)
+    end
   end
 
   # GET /news/1
@@ -27,6 +36,7 @@ class NewsController < ApplicationController
   # POST /news.json
   def create
     @news = News.new(news_params)
+    @news.preview = HTML_Truncator.truncate(@news.body, 100, :length_in_chars => true)
 
     respond_to do |format|
       if @news.save
@@ -42,6 +52,9 @@ class NewsController < ApplicationController
   # PATCH/PUT /news/1
   # PATCH/PUT /news/1.json
   def update
+    @news.preview = HTML_Truncator.truncate(news_params[:body], 100, :length_in_chars => true)
+
+    
     respond_to do |format|
       if @news.update(news_params)
         format.html { redirect_to @news, notice: 'News was successfully updated.' }
