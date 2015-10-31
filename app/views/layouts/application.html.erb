@@ -13,6 +13,11 @@
   
   <body>
   
+    <div class="<%= jumbo_tag %>">
+      <h1>ObsiRails</h1>
+      <p>Nice RoR Portage from audiotheme's Obsidian by Equipe 4 ;)</p>
+    </div>
+  
     <% if user_signed_in? %>
         <%= link_to('Sign Out', destroy_user_session_path, :method => :delete, :class => "admin") %></li>
     <% end %>
