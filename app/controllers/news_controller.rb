@@ -8,7 +8,8 @@ class NewsController < ApplicationController
   # GET /news.json
   def index
     
-    @news = News.all.where(:user_id => :author, :published => true).order(created_at: :desc).page params[:page]
+    
+    @news = News.all.where(:user_id => params[:author], :published => true).order(created_at: :desc).page params[:page]
     if @news.count == 0
       @news = nil
     end
