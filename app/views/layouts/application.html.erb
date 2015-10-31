@@ -13,10 +13,12 @@
   
   <body>
   
+    <% if !user_signed_in? %>
     <div class="<%= jumbo_tag %>">
       <h1>ObsiRails</h1>
       <p>Nice RoR Portage from audiotheme's Obsidian by Equipe 4 ;)</p>
     </div>
+    <% end %>
   
     <% if user_signed_in? %>
         <%= link_to('Sign Out', destroy_user_session_path, :method => :delete, :class => "admin") %></li>
@@ -27,6 +29,10 @@
   
     <div class="wrapper">
       <%= yield %>
+      
+    <% if !user_signed_in? %>
+    <% @latest_news = News.limit(3).order(created_at: :desc).where(:published => true) %>
+    <%= render 'about', :latest_news => @latest_news %>
       
     <!-- Footer -->
     <div class="divider divider-mini"></div>
@@ -44,7 +50,8 @@
               <li><a href="#" target="_new"><i class="fa fa-spotify fa-lg"></i></a></li>
           </ul>
           <p>ObsiRails - Made in Boitron - Equipe 4</p>
-      </footer>   
+      </footer>  
+      <% end %>
     </div>
 
   </body>
