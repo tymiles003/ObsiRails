@@ -7,17 +7,24 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
+    
+    @news = News.all.where(:user_id => :author, :published => true).order(created_at: :desc).page params[:page]
+    if @news.count == 0
+      @news = nil
+    end
+
     if user_signed_in?
       if current_user.role.name == "Admin"
-        @news = News.all.page params[:page]
+        @news ||= News.all.order(created_at: :desc).page params[:page]
       else
-        @news = News.all.where(:published => true).page params[:page]
+        @news ||= News.all.where(:published => true).order(created_at: :desc).page params[:page]
       end
     else
-      @news = News.all.where(:published => true).page params[:page]
+      @news ||= News.all.where(:published => true).order(created_at: :desc).page params[:page]
     end
+    
   end
-
+  
   # GET /news/1
   # GET /news/1.json
   def show

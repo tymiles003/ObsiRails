@@ -22,7 +22,7 @@
     
     <article>
       <%= link_to news.title, news %>
-      <em>By (author) on <%= link_to news.created_at.to_formatted_s(:long), news %></em>
+      <em>By <%= link_to news.user.username, news_index_path(:author => news.user.id) %> on <%= link_to news.created_at.to_formatted_s(:obsirails), news %></em>
       <%= news.body.html_safe %>
     </article>
     <% end %>
