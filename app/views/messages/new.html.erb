@@ -11,6 +11,6 @@
   </main>
   
   <% @latest_news = News.limit(3).order(created_at: :desc).where(:published => true) %>
-  <%= render 'news/latest_news', :latest_news => @latest_news %>
+  <%= render 'partials/latest_news', :latest_news => @latest_news %>
   
 </section>

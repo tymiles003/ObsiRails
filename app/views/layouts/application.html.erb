@@ -12,27 +12,27 @@
   </head>
   
   <body>
+    
+    <% if user_signed_in? %>
+      <%= render 'partials/admin' %>
+    <% end %>
+
+    <% if notice %><p class="notice"><%= notice %></p><% end %>
+    <% if alert %><p class="alert"><%= alert %></p><% end %>
+    
+    <%= render 'partials/nav' %>
   
-    <% if !user_signed_in? %>
     <div class="<%= jumbo_tag %>">
       <h1>ObsiRails</h1>
       <p>Nice RoR Portage from audiotheme's Obsidian by Equipe 4 ;)</p>
     </div>
-    <% end %>
-  
-    <% if user_signed_in? %>
-        <%= link_to('Sign Out', destroy_user_session_path, :method => :delete, :class => "admin") %></li>
-    <% end %>
-  
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
   
     <div class="wrapper">
       <%= yield %>
       
-    <% if !user_signed_in? %>
     <% @latest_news = News.limit(3).order(created_at: :desc).where(:published => true) %>
-    <%= render 'about', :latest_news => @latest_news %>
+    <%= render 'partials/about', :latest_news => @latest_news %>
       
     <!-- Footer -->
     <div class="divider divider-mini"></div>
@@ -51,7 +51,6 @@
           </ul>
           <p>ObsiRails - Made in Boitron - Equipe 4</p>
       </footer>  
-      <% end %>
     </div>
 
   </body>
