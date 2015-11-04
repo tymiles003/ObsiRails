@@ -1,0 +1,33 @@
+<%= form_for @message, url: contact_path do |message_form| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= message_form.label :name %><strong>&nbsp;(required)</strong><br>
+    <%= message_form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= message_form.label :email %><strong>&nbsp;(required)</strong><br>
+    <%= message_form.email_field :email %>
+  </div>
+  <div class="field">
+    <%= message_form.label :website %><br>
+    <%= message_form.text_field :website %>
+  </div>
+  <div class="field">
+    <%= message_form.label :comment %><strong>&nbsp;(required)</strong><br>
+    <%= message_form.text_area :comment %>
+  </div>
+  <div class="actions">
+    <%= message_form.submit "submit »" %>
+  </div>
+<% end %>

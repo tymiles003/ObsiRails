@@ -22,5 +22,17 @@ module Workspace
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    
+    # Mailing for Contact Page
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      user_name: "bidouilleur",
+      password: "test1234",
+      domain: "obsirails.eq4",
+      address: "smtp.sendgrid.net",
+      port: 2525,
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
   end
 end

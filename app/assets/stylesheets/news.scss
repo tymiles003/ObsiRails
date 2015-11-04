@@ -1,4 +1,4 @@
-.news {
+.cols-2 {
   display:flex;
   flex-direction: row;
   padding-top: 50px;
@@ -77,6 +77,55 @@
            font-style: normal;
          }
        }
+      }
+    }
+    
+    form {
+      label {
+        font-family: "Open Sans";
+        font-size: 16px;
+        color: rgba(255,255,255,.7);
+        font-weight: 700;
+      }
+      strong {
+        color: rgba(255,255,255,.5);
+        font-weight: 400;
+      }
+      input, textarea {
+        font-family: "Open Sans";
+        font-size: 14px;
+        width: 300px;
+        max-width: 100%;
+        background: rgba(0,0,0,.2);
+        border: 1px solid #444;
+        outline-color: #bbb;
+        color: rgba(255,255,255,.4);
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        &:focus {
+          color: rgba(255,255,255,.6);
+        }
+      }
+      textarea {
+        height: 200px;
+        width: 80%;
+        overflow-y:auto;
+      }
+      input[type=submit] {
+        background: rgba(0,0,0,.5);
+        width: 120px;
+        font-weight: 700;
+        color: rgba(255,255,255,.7);
+        letter-spacing: 0.1em;
+        border: none;
+        text-transform: uppercase;
+        transition: all, .5s ease;
+        &:hover {
+          background: rgba(0,0,0,.9);
+          color: #fff;
+          transition: all .5s ease;
+        }
       }
     }
   }

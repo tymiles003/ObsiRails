@@ -1,0 +1,16 @@
+<div class="divider divider-centered">
+  <h2>Contact</h2>
+</div>
+
+<section class="cols-2">
+  
+  <main>
+
+    <%= render 'form' %>
+    
+  </main>
+  
+  <% @latest_news = News.limit(3).order(created_at: :desc).where(:published => true) %>
+  <%= render 'news/latest_news', :latest_news => @latest_news %>
+  
+</section>
