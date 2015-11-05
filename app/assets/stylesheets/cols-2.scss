@@ -94,7 +94,7 @@
       input, textarea {
         font-family: "Open Sans";
         font-size: 14px;
-        width: 300px;
+        min-width: 300px;
         max-width: 100%;
         background: rgba(0,0,0,.2);
         border: 1px solid #444;
@@ -109,7 +109,7 @@
       }
       textarea {
         height: 200px;
-        width: 80%;
+        min-width: 450px;
         overflow-y:auto;
       }
       input[type=submit] {
@@ -131,8 +131,9 @@
   }
   
   .latest_news {
-    width: calc((100% / 3) - 20px);
+    display: flex;
     flex-direction: column;
+    width: calc((100% / 3) - 20px);
     padding-left: 20px;
     input {
       width: calc(100% - 20px);
@@ -158,6 +159,8 @@
       color: rgba(255,255,255,.7);
       line-height: 1.7em; 
       padding-top: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     em {
       display: block;
