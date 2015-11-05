@@ -62,3 +62,6 @@ gem 'kaminari'
 
 # Font Awesome
 gem 'font-awesome-sass'
+
+# Nice Urls <3
+gem 'friendly_id'
