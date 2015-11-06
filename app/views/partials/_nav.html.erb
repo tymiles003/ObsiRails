@@ -2,7 +2,7 @@
   <ul>
     <li><%= link_to_unless_current 'Home', root_path %></li>
     <li><%= link_to_unless_current 'Bio', '/bio' %></li>
-    <% if false %><li><%= link_to_unless_current 'Photos', photos_path %></li><% end %>
+    <li><%= link_to_unless_current 'Photos', photos_path %></li>
     <% if false %><li class="sub-menu"><%= link_to_unless_current 'Music', music_path %>
 
     <% @albums=Album.all.order(:release).reverse %>

@@ -65,3 +65,9 @@ gem 'font-awesome-sass'
 
 # Nice Urls <3
 gem 'friendly_id'
+
+# Nested Fields
+gem'awesome_nested_fields'
+
+# LIghtbox
+gem 'lightbox2-rails'

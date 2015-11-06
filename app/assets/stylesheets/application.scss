@@ -16,6 +16,7 @@
  
  @import "font-awesome-sprockets";
  @import "font-awesome";
+ @import "lightbox";
 
 * {margin:0;padding:0;}
 
@@ -98,6 +99,15 @@ html {
   .divider-centered {
     justify-content: center;
     padding-top: 30px;
+    a {
+      color: #fff;
+      font-size: 1em;
+      font-weight: 400;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
   
   footer {

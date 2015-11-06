@@ -1,0 +1,36 @@
+<div class="divider divider-centered">
+  <h2>Photos</h2>
+</div>
+
+  <% if user_signed_in? %>
+    <div class="admin">
+      <% @photos.each do |photo| %>
+        <%= link_to 'Edit', edit_photo_path(photo) %>
+      <% end %>
+    </div>
+  <% end %>
+
+<section class="photos">
+
+  <div id="gallery" class="tiles">
+    
+    <% @photos.each do |photo| %>
+    
+      <% photo.images.each do |image| %>
+        <%= link_to image_tag(image.file.url(:medium)), image.file.url, :data => {:lightbox=>"Photos"} %>
+      <% end %>
+    <% end %>
+
+  </div>
+  
+</section>
+
+<script>
+  $(function() {
+    $('#gallery').tilesGallery({
+      tileMinHeight: 200,
+      fadeInDuration: 1000,
+      margin: 4
+    });
+  });
+</script>

@@ -1,0 +1,39 @@
+  <%= form_for(@photo) do |f| %>
+    <% if @photo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+  
+        <ul>
+        <% @photo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="items">
+      <%= f.nested_fields_for :images do |f| %>
+        <fieldset class="item">
+          
+          <%= image_tag f.object.file(:thumb), :class => "image-left" %>
+          <%= f.file_field :file %><br />
+  
+          <a href="#" class="remove">remove</a>
+          
+          <%= f.hidden_field :id %>
+          <%= f.hidden_field :_destroy %>
+        </fieldset>
+      <% end %>
+    </div>
+    <a href="#" class="add">Add Picture</a>
+    
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<script>
+  $(document).ready(function(e) {
+    $('FORM').nestedFields();
+  });
+</script>

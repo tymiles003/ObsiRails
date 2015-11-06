@@ -1,7 +1,41 @@
 .admin {
-    background: rgba(0,0,0,.8);
-    color: yellow;
-    a {
-        color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 5px;
+  background: rgba(0,0,0,.8);
+  color: orange;
+  a {
+    color: orange;
+    padding:0 15px;
+    transition: all .5s ease;
+    text-decoration: none;
+    &:hover {
+        color: red;
+        text-decoration: underline;
+        transition: all .5s ease;
     }
+  }
+  .image-left {
+    float: left;
+  }
+}
+
+.notice, .alert {
+  display: block;
+  text-align: center;
+  width: 80%;
+  padding: 10px 0 10px 0;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.notice {
+  background: green;
+  color: #fff;
+}
+.alert {
+  background: red;
+  color: #fff;
 }

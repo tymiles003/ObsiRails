@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    awesome_nested_fields (0.6.4)
+      rails (>= 3.0.0)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -87,6 +89,8 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    lightbox2-rails (2.7.1)
+      railties (>= 3.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -174,6 +178,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_nested_fields
   byebug
   cancan
   ckeditor
@@ -185,6 +190,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  lightbox2-rails
   paperclip
   rails (= 4.2.4)
   sass-rails (~> 5.0)
