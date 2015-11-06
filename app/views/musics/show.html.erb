@@ -1,0 +1,44 @@
+<div class="divider divider-centered">
+  <h2>Records</h2>
+</div>
+
+<% if user_signed_in? %>
+  <div class="admin">
+  <%= link_to 'Edit', edit_music_path(@music) %>
+  <%= link_to 'Destroy', @music, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+
+<section class="musics">
+  
+  <div class="album">
+    <%= link_to image_tag(@music.cover.url), @music.cover.url %>
+    <div class="buttons">
+      <a class="btn-music" href="#">Itunes</a>
+      <a class="btn-music" href="#">Amazon</a>
+      <a class="btn-music" href="#">Spotify</a>
+    </div>    
+  </div>
+
+  <main>
+    <h2><%= @music.title %></h2>
+    <strong>Release: <%= @music.release %></strong>
+      
+    <audio id="audio"></audio>
+  
+    <% if @music.tracks.any? %>
+        <% @music.tracks.each do |track| %>
+          <%= link_to(track) do %>
+            <article>
+              <h4 id="number<%= track.id %>"><%= track.number %></h4>
+              <p><%= track.title %></p>
+              <em id="duration<%= track.id %>">-:--</em>
+            </article>
+          <% end %>
+        <% end %>
+    <% else %>
+      <p>No Track</p>
+    <% end %>
+  </main>
+
+</section>

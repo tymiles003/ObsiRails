@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106125448) do
+ActiveRecord::Schema.define(version: 20151106233616) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -41,6 +41,20 @@ ActiveRecord::Schema.define(version: 20151106125448) do
 
   add_index "images", ["photo_id"], name: "index_images_on_photo_id"
 
+  create_table "musics", force: :cascade do |t|
+    t.string   "title"
+    t.string   "release"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.string   "slug"
+  end
+
+  add_index "musics", ["slug"], name: "index_musics_on_slug", unique: true
+
   create_table "news", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -65,6 +79,22 @@ ActiveRecord::Schema.define(version: 20151106125448) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tracks", force: :cascade do |t|
+    t.integer  "number"
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "music_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "slug"
+  end
+
+  add_index "tracks", ["music_id"], name: "index_tracks_on_music_id"
+  add_index "tracks", ["slug"], name: "index_tracks_on_slug", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

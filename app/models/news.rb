@@ -1,6 +1,6 @@
 class News < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :slug_candidates, use: :slugged
+  friendly_id :slug_candidates, use: [:slugged, :finders]
   
   belongs_to :user  
   validates_presence_of :title, :body
@@ -15,6 +15,9 @@ class News < ActiveRecord::Base
   end
   
   def slug_candidates
-    [[:id, :title]]
+    [
+      :title,
+      [:id, :title]
+    ]
   end
 end

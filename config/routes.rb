@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tracks
+  resources :musics, :path => "music"
   resources :photos
   resources :images
   resources :messages
@@ -11,8 +13,10 @@ Rails.application.routes.draw do
   get  'contact', to: 'messages#new', as: 'contact'
   post 'contact', to: 'messages#create'
   
-  
-  root 'pages#home'
   get ':id', to: 'pages#show'
   
+
+
+  root 'pages#home'
+
 end

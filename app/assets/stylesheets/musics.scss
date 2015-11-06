@@ -1,0 +1,121 @@
+.musics {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  article {
+    width: calc(100% / 3 - 25px);
+  }
+  img {
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+    opacity: 1;
+    transition: opacity .5s ease;
+    &:hover {
+      opacity: 0.80;
+      transition: opacity .5s ease;
+    }
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  p {
+    font-weight: 400;
+    color: rgba(255,255,255,.7);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8em;
+  }
+  .album {
+    width: calc(100% / 3 - 40px);
+    flex-direction: column;
+    img {
+      padding-bottom: 35px;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .btn-music {
+      width: 100%;
+      display: block;
+      background: rgba(0,0,0,.4);
+      text-align: center;
+      text-decoration: none;
+      color: rgba(255,255,255,.7);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.8em;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      transition: all 0.25s;
+      &:hover {
+        background: rgba(0,0,0,.8);
+        color: #fff;
+        transition: all 0.25s;
+      }
+    }
+  }
+  main {
+    width: calc(100% / 3*2);
+    flex-direction: column;
+    h2 {
+      color: #fff;
+      font-weight: 400;
+      font-size: 1.9em;
+      margin-top: -.3em;
+    }
+    strong {
+      display: block;
+      color: rgba(255,255,255,.7);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.8em;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+    article {
+      display: flex;
+      width: 100%;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+      align-items: baseline;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      &:first-of-type {
+        border-top: 1px solid rgba(255,255,255,.2);
+      }
+    }
+    a:hover {
+      text-decoration: none;
+      p {text-decoration:underline;}
+    }
+    h4 {
+      flex-basis: 50px;
+      text-align: center;
+      font-weight: 400;
+      color: rgba(255,255,255,.7);
+    }
+    p {
+      color: #fff;
+      text-transform: none;
+      font-size: 1em;
+      letter-spacing: normal;
+      flex: 1;
+    }
+    em {
+      color: rgba(255,255,255,.7);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 0.9em;
+      flex-basis: 50px;
+    }
+  }
+}
+

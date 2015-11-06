@@ -1,0 +1,58 @@
+<%= form_for(@music) do |f| %>
+  <% if @music.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@music.errors.count, "error") %> prohibited this music from being saved:</h2>
+
+      <ul>
+      <% @music.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= image_tag f.object.cover(:thumb) %><br />
+    <%= f.file_field :cover %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :release %><br>
+    <%= f.text_field :release %>
+  </div>
+  
+  <h2>Tracks</h2>
+  <div class="items">
+    <%= f.nested_fields_for :tracks do |f| %>
+      <fieldset class="item">
+        <%= f.label :number %>
+        <%= f.text_field :number %>
+        
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        
+        <%= f.label :file %>
+        <%= f.text_field :file %>
+        <%= f.file_field :file %>
+        
+        <a href="#" class="remove">remove</a>
+        
+        <%= f.hidden_field :id %>
+        <%= f.hidden_field :_destroy %>
+      </fieldset>
+    <% end %>
+  </div>
+  <a href="#" class="add">Add Track</a>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function(e) {
+    $('FORM').nestedFields();
+  });
+</script>

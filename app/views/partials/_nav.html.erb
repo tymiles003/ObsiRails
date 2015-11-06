@@ -3,16 +3,16 @@
     <li><%= link_to_unless_current 'Home', root_path %></li>
     <li><%= link_to_unless_current 'Bio', '/bio' %></li>
     <li><%= link_to_unless_current 'Photos', photos_path %></li>
-    <% if false %><li class="sub-menu"><%= link_to_unless_current 'Music', music_path %>
+    <li class="sub-menu"><%= link_to_unless_current 'Music', musics_path %>
 
-    <% @albums=Album.all.order(:release).reverse %>
-    <ul>
-    <% @albums.each do |album| %>
-      <li><%= link_to album.title, album %></li>
-    <% end %>
-    </ul>
+      <% @musics=Music.all.order(:release).reverse %>
+      <ul>
+      <% @musics.each do |music| %>
+        <li><%= link_to music.title, music %></li>
+      <% end %>
+      </ul>
 
-    </li><% end %>
+    </li>
     <% if false %><li><%= link_to_unless_current 'Videos', videos_path %></li><% end %>
     <li><%= link_to_unless_current 'News', news_index_path %></li>
     <% if false %><li><%= link_to_unless_current 'Tour', tour_path %></li><% end %>
