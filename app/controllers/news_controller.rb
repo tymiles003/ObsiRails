@@ -9,19 +9,22 @@ class NewsController < ApplicationController
   def index
     
     
-    @news = News.all.where(:user_id => params[:author], :published => true).order(created_at: :desc).page params[:page]
+    @news = News.where(:user_id => params[:author], :published => true).order(created_at: :desc).page params[:page]
     if @news.count == 0
-      @news = nil
+      @news = News.where("strftime('%Y-%m-%d', created_at) = ? AND Published = ?", params[:date], true).order(created_at: :desc).page params[:page]
+      if @news.count == 0
+        @news = nil
+      end
     end
 
     if user_signed_in?
       if current_user.role.name == "Admin"
         @news ||= News.all.order(created_at: :desc).page params[:page]
       else
-        @news ||= News.all.where(:published => true).order(created_at: :desc).page params[:page]
+        @news ||= News.where(:published => true).order(created_at: :desc).page params[:page]
       end
     else
-      @news ||= News.all.where(:published => true).order(created_at: :desc).page params[:page]
+      @news ||= News.where(:published => true).order(created_at: :desc).page params[:page]
     end
     
   end
