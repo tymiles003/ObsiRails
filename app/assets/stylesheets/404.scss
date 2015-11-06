@@ -1,0 +1,12 @@
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  p {
+    color: rgba(255,255,255,.7);
+    font-size: 1.4em;
+  }
+}

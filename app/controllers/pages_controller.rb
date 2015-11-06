@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     begin
       render params[:id]
     rescue ActionView::MissingTemplate
-      render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_fond
+      render "404", :status => :not_fond
     end
   end
 end
