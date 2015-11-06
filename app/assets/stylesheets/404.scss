@@ -9,4 +9,40 @@
     color: rgba(255,255,255,.7);
     font-size: 1.4em;
   }
+  
+  fieldset {
+    border: none;
+  }
+  
+  input {
+    font-family: "Open Sans";
+    font-size: 14px;
+    width: 600px;
+    background: rgba(0,0,0,.2);
+    border: 1px solid #444;
+    outline-color: #bbb;
+    color: rgba(255,255,255,.4);
+    padding: 10px;
+    margin-top: 20px;
+    margin-right: 10px;
+    &:focus {
+      color: rgba(255,255,255,.6);
+    }
+  }
+      
+  input[type=submit] {
+    background: rgba(0,0,0,.5);
+    width: 120px;
+    font-weight: 700;
+    color: rgba(255,255,255,.7);
+    letter-spacing: 0.1em;
+    border: none;
+    text-transform: uppercase;
+    transition: all, .5s ease;
+    &:hover {
+      background: rgba(0,0,0,.9);
+      color: #fff;
+      transition: all .5s ease;
+    }
+  }
 }
