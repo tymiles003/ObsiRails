@@ -31,18 +31,18 @@
   }
       
   input[type=submit] {
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.4);
     width: 120px;
     font-weight: 700;
     color: rgba(255,255,255,.7);
     letter-spacing: 0.1em;
     border: none;
     text-transform: uppercase;
-    transition: all, .5s ease;
+    transition: all, .25s;
     &:hover {
-      background: rgba(0,0,0,.9);
+      background: rgba(0,0,0,.8);
       color: #fff;
-      transition: all .5s ease;
+      transition: all .25s;
     }
   }
 }

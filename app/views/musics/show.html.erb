@@ -27,17 +27,19 @@
     <audio id="audio"></audio>
   
     <% if @music.tracks.any? %>
-        <% @music.tracks.each do |track| %>
-          <%= link_to(track) do %>
-            <article>
-              <h4 id="number<%= track.id %>"><%= track.number %></h4>
-              <p><%= track.title %></p>
-              <em id="duration<%= track.id %>">-:--</em>
-            </article>
-          <% end %>
+      <% @music.tracks.each do |track| %>
+        <%= link_to(track) do %>
+          <article>
+            <h4 id="number<%= track.id %>"><%= track.number %></h4>
+            <p><%= track.title %></p>
+            <em id="duration<%= track.id %>">-:--</em>
+          </article>
         <% end %>
+      <% end %>
     <% else %>
-      <p>No Track</p>
+      <article>
+        <p>No Track</p>
+      </article>
     <% end %>
   </main>
 

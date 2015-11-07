@@ -12,7 +12,7 @@
     <% end %>
     <article>
       <h1><%= link_to @news.title, @news %></h1>
-      <em>By <%= link_to @news.user.username %> on <%= link_to @news.created_at.to_formatted_s(:obsirails), news_index_path(:date => @news.created_at.strftime("%Y-%m-%d")) %></em>
+      <em>By <%= link_to @news.user.username, news_index_path(:author => @news.user.id) %> on <%= link_to @news.created_at.to_formatted_s(:obsirails), news_index_path(:date => @news.created_at.strftime("%Y-%m-%d")) %></em>
       <%= @news.body.html_safe %>
     </article>
 

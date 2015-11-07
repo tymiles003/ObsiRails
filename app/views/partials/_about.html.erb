@@ -6,11 +6,9 @@
     <p>The Obsidian theme, like the naturally occurring volcanic glass of the same name, possesses an inherent allure that's stylish in appearance and practical in purpose. With distinctive background options and various customization possibilities, Obsidian makes it easy to create the ultimate hub for your online identity.</p>
 </article>
 <article>
-    <% if false %>
-        <% @album=Album.find(2) %>
-        <h1><%= @album.title %></h1>    
-        <%= link_to image_tag(@album.cover_url), @album %>
-    <% end %>
+    <% @music=Music.order("RANDOM()").first %>
+    <h1><%= @music.title %></h1>    
+    <%= link_to image_tag(@music.cover.url(:thumb)), @music %>
 </article>
 <article>
     <h1>Recent Posts</h1>    
