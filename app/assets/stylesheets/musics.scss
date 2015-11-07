@@ -90,18 +90,32 @@
       align-items: baseline;
       padding-top: 15px;
       padding-bottom: 15px;
+      &:hover {
+        h4.number {display: none;}
+        a.btn-play {display: flex};
+      }
     }
-
-    a:hover {
-      text-decoration: none;
-      p {text-decoration:underline;}
+    a{
+      &:hover {
+        text-decoration: underline;
+      }
+      &.btn-play {
+        display: none;
+        flex-basis: 50px;
+        justify-content: center;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
+    
     h4 {
       flex-basis: 50px;
       text-align: center;
       font-weight: 400;
       color: rgba(255,255,255,.7);
     }
+    
     p {
       color: #fff;
       text-transform: none;

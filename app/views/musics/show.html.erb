@@ -21,20 +21,17 @@
   </div>
 
   <main>
+    <audio id="music"></audio>
     <h2><%= @music.title %></h2>
     <strong>Release: <%= @music.release %></strong>
-      
-    <audio id="audio"></audio>
-  
     <% if @music.tracks.any? %>
       <% @music.tracks.each do |track| %>
-        <%= link_to(track) do %>
-          <article>
-            <h4 id="number<%= track.id %>"><%= track.number %></h4>
-            <p><%= track.title %></p>
-            <em id="duration<%= track.id %>">-:--</em>
-          </article>
-        <% end %>
+        <article>
+          <%= link_to "►", track.file.url, :class => "btn-play" %>
+          <h4 class="number" id="<%= track.number %>"><%= track.number %></h4>
+          <p><%= link_to track.title , track %></p>
+          <em class="duration" id="em<%= track.number %>">-:--</em>
+        </article>
       <% end %>
     <% else %>
       <article>
@@ -44,3 +41,27 @@
   </main>
 
 </section>
+
+<script>
+  $(document).ready(function() {
+    var last_id=0;
+    $('article').click(function() {
+      var audioElement = document.getElementById("music");
+      audioElement.pause();
+      if (last_id != 0) {
+        $('h4#'+last_id).text(last_id);
+      }
+      var url = $(this).children('a.btn-play').attr('href');
+      last_id = $(this).children('h4').attr('id');
+      $(this).children('h4').text('►');
+      console.log(last_id);
+      audioElement.setAttribute('src', url);
+      
+      audioElement.addEventListener("canplaythrough", function() {
+        audioElement.play();
+      }, true);
+      
+      return false;
+    });
+  });
+</script>
