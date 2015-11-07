@@ -84,6 +84,7 @@
       border-bottom: 1px solid rgba(255,255,255,.2);
     }
     article {
+      transition: background 1s;
       display: flex;
       width: 100%;
       border-bottom: 1px solid rgba(255,255,255,.2);
@@ -129,7 +130,8 @@
       font-style: normal;
       font-weight: 400;
       font-size: 0.9em;
-      flex-basis: 50px;
+      flex-basis: 1 50px;
+      padding-right: 15px;
     }
   }
 }

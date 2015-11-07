@@ -47,21 +47,50 @@
     var last_id=0;
     $('article').click(function() {
       var audioElement = document.getElementById("music");
+      
+      if ($(this).children('h4').text() == "❚❚")
+      {
+        audioElement.pause();
+        $(this).children('h4').text('►');
+        $(this).children('a').text('►');
+        return false;
+      } else if ($(this).children('h4').text() == "►") {
+        audioElement.play();
+        $(this).children('h4').text('❚❚');
+        $(this).children('a').text('❚❚');
+        return false;
+      }
+      
       audioElement.pause();
+      $('article').css("background", "transparent");
+      
       if (last_id != 0) {
         $('h4#'+last_id).text(last_id);
       }
+      $(this).css("background", "rgba(255,255,255,.1)");
       var url = $(this).children('a.btn-play').attr('href');
       last_id = $(this).children('h4').attr('id');
-      $(this).children('h4').text('►');
-      console.log(last_id);
+      $(this).children('h4').text('❚❚');
+      $(this).children('a').text('❚❚');
+      
       audioElement.setAttribute('src', url);
       
       audioElement.addEventListener("canplaythrough", function() {
         audioElement.play();
       }, true);
       
+      audioElement.addEventListener("timeupdate", function() {
+        $('#em'+last_id).text(formatTime(this.currentTime) +" / " +formatTime(this.duration));
+      });
+      
       return false;
     });
   });
+  function formatTime(seconds) {
+    minutes = Math.floor(seconds / 60);
+    minutes = (minutes >= 10) ? minutes : "0" + minutes;
+    seconds = Math.floor(seconds % 60);
+    seconds = (seconds >= 10) ? seconds : "0" + seconds;
+    return minutes + ":" + seconds;
+  }
 </script>
