@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :videos
   resources :tracks
   resources :musics, :path => "music"
   resources :photos

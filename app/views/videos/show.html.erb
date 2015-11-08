@@ -1,0 +1,19 @@
+<div class="divider divider-centered">
+  <h2><%= link_to"Videos", videos_path %></h2>
+</div>
+
+<section class="video">
+
+<% if user_signed_in? %>
+  <div class="admin">
+    <%= link_to 'Edit', edit_video_path(@video) %>
+  </div>
+<% end %>
+
+  <div class="embed">
+    <%= embed(@video.link) %>
+  </div>  
+  <h2><%= @video.title %></h2>
+  
+</section>
+

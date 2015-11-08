@@ -1,0 +1,28 @@
+<div class="divider divider-centered">
+  <h2>Videos</h2>
+</div>
+
+<% if user_signed_in? %>
+  <div class="admin"><%= link_to 'New Video', new_video_path %></div>
+<% end %>
+
+<section class="videos">
+  <% @videos.each do |video| %>
+    <article>
+
+      <% if user_signed_in? %>
+      <div class="admin">
+        <%= link_to 'Edit', edit_video_path(video) %></td>
+        <%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div>
+      <% end %>
+
+      <%= link_to thumb(video.link), video %>
+      <%= link_to video.title, video %>
+      
+    </article>
+  <% end %>
+</section>
+
+
+
