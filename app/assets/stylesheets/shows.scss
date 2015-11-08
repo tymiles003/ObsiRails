@@ -1,0 +1,128 @@
+.gigs {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  a {
+    text-decoration: none;
+  }
+  
+  h1 {
+    font-weight: 400;
+    font-size: 1.3em;
+    padding-bottom: 50px;
+    color: rgba(255,255,255,.7);
+    border-bottom: 1px solid rgba(255,255,255,.2);
+  }
+  
+  article {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    &:hover {
+      background: rgba(255,255,255,.1);
+    }
+    .gig-infos {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      align-content: center;
+      h5 {
+        font-weight: 400;
+        flex-basis: 30px;
+        font-size: 0.8em;
+        text-transform: uppercase;
+        padding: 20px 15px;
+      }
+      strong {
+        font-size: 1.2em;
+        flex-basis: 80px;
+      }
+      em {
+        font-style: normal;
+        font-size: 1em;
+        font-weight: 600;
+        color: rgba(255,255,255,.7);
+        flex-basis: 350px;
+      }
+      p {
+        color: rgba(255,255,255,.7);
+        font-weight: 400;
+      }
+    }
+    .gig-description {
+      padding-left: 15px;
+      blockquote {
+        font-size: 0.8em;
+        padding-left: 125px;
+        color: rgba(255,255,255,.7);
+        margin-top: -15px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+  
+  iframe {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .gig-main {
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+    .gig-desc {
+      width: calc(100% / 3);
+      color: #fff;
+      h1 {
+        color: #fff;
+        padding: 0;
+        border: none;
+        padding-bottom: 10px;
+      }
+      h2 {
+        font-size: 1.3em;
+      }
+      h3 {
+        font-size: 0.9em;
+        padding-bottom: 20px;
+      }
+      p {
+        color: rgba(255,255,255,.7);
+        font-size: 0.93em;
+      }
+    }
+    
+    .gig-list {
+      width: calc(100% / 3*2);
+      article {
+        flex-direction: row;
+        align-content: center;
+        align-items: baseline;
+        &:hover {
+          background: transparent;
+        }
+        strong {
+          text-transform: uppercase;
+          font-size: 0.9em;
+          flex-basis: 130px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+        p {
+          color: rgba(255,255,255,.7);
+        }
+        a {
+          color: rgba(255,255,255,.7);
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    
+  }
+  
+  
+}

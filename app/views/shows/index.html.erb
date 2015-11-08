@@ -1,0 +1,59 @@
+<div class="divider divider-centered">
+  <h2>Gigs</h2>
+</div>
+
+<% if user_signed_in? %>
+  <div class="admin"><%= link_to 'New Show', new_show_path %></div>
+<% end %>
+
+<div class="divider divider-mini">
+  <ul>
+    <li class="active"><a href="#">Upcoming</a></li>
+    <li><a href="#">2015</a></li>
+    <li><a href="#">2014</a></li>
+  </ul>
+</div>
+
+<section class="gigs">
+
+  <h1>Support live music and show appreciation for your favorite artist by attending a concert. You’ll enjoy the experience.</h1>
+
+
+  <% @shows.each do |show| %>
+
+    <%= link_to show do %>
+    
+      <article>
+  
+        <% if user_signed_in? %>
+          <div class="admin">
+              <%= link_to 'Show', show %>
+              <%= link_to 'Edit', edit_show_path(show) %>
+              <%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+    
+        <div class="gig-infos">
+    
+          <h5><%= show.date.strftime("%b") %></h5>
+          <strong><%= show.date.strftime("%d") %></strong>
+          <em><%= show.address_town %></em>
+          
+          <% if show.title? %>
+            <p><%= show.title %></p>
+          <% else %>
+            <p><%= show.place %></p>
+          <% end %>
+          
+        </div>
+        
+        <div class="gig-description">
+          <% if show.description? %>
+            <blockquote><%= show.description %></blockquote>
+          <% end %>
+        </div>
+      </article>
+    <% end %>
+  <% end %>
+
+</section>

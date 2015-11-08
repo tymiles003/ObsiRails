@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108124555) do
+ActiveRecord::Schema.define(version: 20151108141051) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -78,6 +78,28 @@ ActiveRecord::Schema.define(version: 20151108124555) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "shows", force: :cascade do |t|
+    t.string   "title"
+    t.string   "place"
+    t.datetime "date"
+    t.string   "address_state"
+    t.string   "address_town"
+    t.string   "address_street"
+    t.string   "phone"
+    t.string   "website"
+    t.string   "ticket_price"
+    t.string   "ticket_link"
+    t.string   "subscribe_ical_file_name"
+    t.string   "subscribe_ical_content_type"
+    t.integer  "subscribe_ical_file_size"
+    t.datetime "subscribe_ical_updated_at"
+    t.string   "subscribe_google"
+    t.string   "description"
+    t.string   "google_map"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "tracks", force: :cascade do |t|

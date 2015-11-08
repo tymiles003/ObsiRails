@@ -1,0 +1,73 @@
+<%= form_for(@show) do |f| %>
+  <% if @show.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@show.errors.count, "error") %> prohibited this show from being saved:</h2>
+
+      <ul>
+      <% @show.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :place %><br>
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :address_state %><br>
+    <%= f.text_field :address_state %>
+  </div>
+  <div class="field">
+    <%= f.label :address_town %><br>
+    <%= f.text_field :address_town %>
+  </div>
+  <div class="field">
+    <%= f.label :address_street %><br>
+    <%= f.text_field :address_street %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :ticket_price %><br>
+    <%= f.text_field :ticket_price %>
+  </div>
+  <div class="field">
+    <%= f.label :ticket_link %><br>
+    <%= f.text_field :ticket_link %>
+  </div>
+  <div class="field">
+    <%= f.label :subscribe_ical %><br>
+    <%= f.file_field :subscribe_ical %>
+  </div>
+  <div class="field">
+    <%= f.label :subscribe_google %><br>
+    <%= f.text_field :subscribe_google %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :google_map %><br>
+    <%= f.text_field :google_map %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

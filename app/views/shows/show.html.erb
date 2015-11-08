@@ -1,0 +1,63 @@
+<div class="divider divider-centered">
+  <h2><%= link_to"Gigs", shows_path %></h2>
+</div>
+
+<% if user_signed_in? %>
+  <div class="admin">
+    <%= link_to 'Edit', edit_show_path(@show) %>
+  </div>
+<% end %>
+
+<section class="gigs">
+
+  <%= @show.google_map.html_safe %>
+
+  <div class="gig-main">
+    <div class="gig-desc">
+      <h1><%= @show.title %></h1>
+      <h2><%= @show.date.to_formatted_s(:obsirails) %></h2>
+      <h3><%= @show.address_town %>,<%= @show.address_state %></h3>
+      <p><%= @show.description %></p>
+    </div>
+
+    <div class="gig-list">
+
+      <div class="divider divider-mini"></div>
+      <article>
+        <strong>Time:</strong>
+        <p><%= @show.date.strftime("%I:%M %p") %></p>
+      </article>
+
+      <% if @show.ticket_price? %>
+      <article>
+        <strong>Tickets:</strong>
+        <p>$<%= @show.ticket_price %> - <%= link_to 'Buy', @show.ticket_link, :target => "_blank" %></p>
+      </article>
+      <% end %>
+      
+      <article>
+        <strong>Subscribe:</strong>
+        <p><%= link_to "iCal", @show.subscribe_ical.url %> - <%= link_to "Google", @show.subscribe_google, :target => "_blank"  %></p>
+      </article>
+      
+      <article>
+        <strong>Address:</strong>
+        <p><%= @show.address_street %></p>
+      </article>
+      
+      <article>
+        <strong>Phone:</strong>
+        <p><%= @show.phone %></p>
+      </article>
+      
+      <% if @show.website? %>
+      <article>
+        <strong>Website:</strong>
+        <p><%= link_to @show.website, "http://#{@show.website}", :target => "_blank"  %></p>
+      </article>
+      <% end %>
+      
+    </div
+  </div>
+
+</section>

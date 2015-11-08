@@ -95,6 +95,27 @@ html {
   .divider-mini {
     padding-top: 0;
     padding-bottom: 0;
+    justify-content: center;
+    
+    ul {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      li {
+        display: inline-block;
+        padding: 8px 13px;
+        &.active {
+          background: rgba(255,255,255,.05);
+        }
+        a {
+          color: #fff;
+          font-weight: 700;
+          font-size: 0.8em;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
   }
   .divider-centered {
     justify-content: center;
