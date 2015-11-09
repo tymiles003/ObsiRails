@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   article {
-    width: calc(100% / 3 - 25px);
+    width: calc(100% / 3 - 29px);
     padding-bottom: 50px;
     img {
       width: 100%;
@@ -23,6 +23,22 @@
       font-weight: 600;
       &:hover {
         text-decoration: underline;
+      }
+    }
+    &.video-home {
+      border: 1px solid rgba(255,255,255,.2);
+      border-top: none;
+      margin-top: -50px;
+      padding: 20px;
+      &:first-child {
+        border-left: none;
+        border-right: none;
+        padding-left: 0;
+      }
+      &:last-child {
+        border-left: none;
+        border-right: none;
+        padding-right: 0;
       }
     }
   }

@@ -1,1 +1,41 @@
-<h1> HOME PAGE </h1>
+<div class="divider">
+  <h1>Videos</h1>
+  <%= link_to "All Videos", videos_path %>
+</div>
+
+<section class="videos">
+  <% @videos.each do |video| %>
+    <article class="video-home">
+      <%= link_to (thumb(video.link)), video %>
+      <%= link_to video.title, video %>
+    </article>
+  <% end %>
+</section>
+
+<div class="divider">
+  <h1>Upcoming Gigs</h1>
+</div>
+
+<section class="gigs">
+  <% @shows.each do |show| %>
+    <%= link_to show do %>
+      <article>
+        <div class="gig-infos">
+          <h5><%= show.date.strftime("%b") %></h5>
+          <strong><%= show.date.strftime("%d") %></strong>
+          <em><%= show.address_town %></em>
+          <% if show.title? %>
+            <p><%= show.title %></p>
+          <% else %>
+            <p><%= show.place %></p>
+          <% end %>
+        </div>
+        <div class="gig-description">
+          <% if show.description? %>
+            <blockquote><%= show.description %></blockquote>
+          <% end %>
+        </div>
+      </article>
+    <% end %>
+  <% end %>
+</section>
