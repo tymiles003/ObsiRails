@@ -1,0 +1,25 @@
+<div id="player">
+  <i class="fa fa-step-backward" id="player-btn-prev"></i>
+  <i class="fa fa-play fa-lg" id="player-btn-play"></i>
+  <i class="fa fa-step-forward" id="player-btn-next"></i>
+  <%= image_tag @music.cover.url(:thumb), :id => "player-cover" %>
+  
+  <div id="player-percent">
+    <div id="player-timeline">
+      <p id="player-title">Aeolus - She Threw Herself Into the Sea</p>
+      <p id="player-time">00:00/2:18</p>
+    </div>    
+  </div>
+    
+  <div id="player-clearer-g"></div>
+  <i class="fa fa-volume-up" id="player-btn-volume"></i>
+  <div id="player-clearer-d"></div>
+  
+  <i class="fa fa-bars" id="player-btn-toggle-pl"></i>
+  <i class="fa fa-caret-left" id="player-btn-mini"></i>
+  
+</div>
+
+<div id="player-volume">
+  <input type="range" min="0" max="100" value="50" id="player-slider">
+</div>

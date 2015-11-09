@@ -1,20 +1,24 @@
 <div class="divider divider-mini"></div>
 
 <section class="about">
-<article>
+    
+<article class="noclick">
     <h1>About Obsidian</h1>
     <p>The Obsidian theme, like the naturally occurring volcanic glass of the same name, possesses an inherent allure that's stylish in appearance and practical in purpose. With distinctive background options and various customization possibilities, Obsidian makes it easy to create the ultimate hub for your online identity.</p>
 </article>
-<article>
+
+<article class="noclick">
     <% @music=Music.order("RANDOM()").first %>
     <h1><%= @music.title %></h1>    
     <%= link_to image_tag(@music.cover.url(:thumb)), @music %>
 </article>
-<article>
+
+<article class="noclick">
     <h1>Recent Posts</h1>    
     <% @latest_news.each do |news| %>
       <%= link_to news.title, news %>
       <em><%= news.created_at.to_formatted_s(:obsirails) %></em>
     <% end %>
 </article>
+
 </section>

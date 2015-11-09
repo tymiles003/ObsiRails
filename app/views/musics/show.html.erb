@@ -46,6 +46,9 @@
   $(document).ready(function() {
     var last_id=0;
     $('article').click(function() {
+      
+      if $(this).attr('class')="noclick" {return false;}
+      
       var audioElement = document.getElementById("music");
       
       if ($(this).children('h4').text() == "❚❚")

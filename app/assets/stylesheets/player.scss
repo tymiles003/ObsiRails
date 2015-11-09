@@ -1,0 +1,61 @@
+#player {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  color: #fff;
+  align-items: center;
+
+  i {
+    flex-basis: 50px;
+    color: rgba(255,255,255,.7);
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+  
+  #player-btn-prev {text-align: right;transform: scaleY(0.7);}
+  #player-btn-play {color:#fff;text-align: center;}
+  #player-btn-next {text-align: left;transform: scaleY(0.7);}
+
+  #player-cover {width: 50px;height:50px;}
+  
+  #player-percent {
+    flex: 1;
+    background: -webkit-linear-gradient(left, #111 80%, transparent 0%);
+    background: -moz-linear-gradient(left, #111 80%, transparent 0%);
+    background: -ms-linear-gradient(left, #111 80%,  transparent 0%);
+    background: linear-gradient(left, #111 80%,  transparent 0%);
+  }
+  
+  #player-timeline {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    background: -webkit-linear-gradient(left, #333 50%, transparent 0%);
+    background: -moz-linear-gradient(left, #333 50%, transparent 0%);
+    background: -ms-linear-gradient(left, #333 50%, transparent 0%);
+    background: linear-gradient(left, #333 50%, transparent 0%);
+    height: 50px;
+  }
+  
+  #player-title, #player-time {
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+  
+  #player-title {color: #fff;flex:1;padding-left: 20px;}
+  #player-time {flex-basis: 100px;}
+  
+  #player-btn-volume, #player-btn-toggle-pl, #player-btn-mini {color: #fff;}
+  
+  #player-btn-volume, #player-btn-toggle-pl {flex-basis: 40px;}
+  #player-btn-mini {background:#333;padding-top: 17px;padding-bottom: 17px;padding-left: 5px;flex-basis:15px;}
+  
+}
+

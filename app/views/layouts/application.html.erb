@@ -25,7 +25,7 @@
   
     <div class="<%= jumbo_tag %>">
       <h1>ObsiRails</h1>
-      <p>Nice RoR Portage from audiotheme's Obsidian by Equipe 4 ;)</p>
+      <p>Nice RoR Portage from audiotheme's Obsidian by Bidouilleur NUmérique</p>
     </div>
 
   
@@ -35,6 +35,8 @@
     <% @latest_news = News.limit(3).order(created_at: :desc).where(:published => true) %>
     <%= render 'partials/about', :latest_news => @latest_news %>
     <%= render 'partials/footer' %>
+  
+    <%= render 'partials/player' %>
 
   </body>
   
