@@ -26,7 +26,7 @@
     <strong>Release: <%= @music.release %></strong>
     <% if @music.tracks.any? %>
       <% @music.tracks.each do |track| %>
-        <article>
+        <article class="audio">
           <%= link_to "►", track.file.url, :class => "btn-play" %>
           <h4 class="number" id="<%= track.number %>"><%= track.number %></h4>
           <p><%= link_to track.title , track %></p>
@@ -47,45 +47,47 @@
     var last_id=0;
     $('article').click(function() {
       
-      if $(this).attr('class')="noclick" {return false;}
+      if ($(this).hasClass("audio")) {
       
-      var audioElement = document.getElementById("music");
-      
-      if ($(this).children('h4').text() == "❚❚")
-      {
+        var audioElement = document.getElementById("music");
+        
+        if ($(this).children('h4').text() == "❚❚")
+        {
+          audioElement.pause();
+          $(this).children('h4').text('►');
+          $(this).children('a').text('►');
+          return false;
+        } else if ($(this).children('h4').text() == "►") {
+          audioElement.play();
+          $(this).children('h4').text('❚❚');
+          $(this).children('a').text('❚❚');
+          return false;
+        }
+        
         audioElement.pause();
-        $(this).children('h4').text('►');
-        $(this).children('a').text('►');
-        return false;
-      } else if ($(this).children('h4').text() == "►") {
-        audioElement.play();
+        $('article').css("background", "transparent");
+        
+        if (last_id != 0) {
+          $('h4#'+last_id).text(last_id);
+        }
+        $(this).css("background", "rgba(255,255,255,.1)");
+        var url = $(this).children('a.btn-play').attr('href');
+        last_id = $(this).children('h4').attr('id');
         $(this).children('h4').text('❚❚');
         $(this).children('a').text('❚❚');
-        return false;
+        
+        audioElement.setAttribute('src', url);
+        $('#em'+last_id).text("00:00 / 00:00")
+        
+        
+        audioElement.addEventListener("canplaythrough", function() {
+          audioElement.play();
+        }, true);
+        
+        audioElement.addEventListener("timeupdate", function() {
+          $('#em'+last_id).text(formatTime(this.currentTime) +" / " +formatTime(this.duration));
+        });
       }
-      
-      audioElement.pause();
-      $('article').css("background", "transparent");
-      
-      if (last_id != 0) {
-        $('h4#'+last_id).text(last_id);
-      }
-      $(this).css("background", "rgba(255,255,255,.1)");
-      var url = $(this).children('a.btn-play').attr('href');
-      last_id = $(this).children('h4').attr('id');
-      $(this).children('h4').text('❚❚');
-      $(this).children('a').text('❚❚');
-      
-      audioElement.setAttribute('src', url);
-      
-      audioElement.addEventListener("canplaythrough", function() {
-        audioElement.play();
-      }, true);
-      
-      audioElement.addEventListener("timeupdate", function() {
-        $('#em'+last_id).text(formatTime(this.currentTime) +" / " +formatTime(this.duration));
-      });
-      
       return false;
     });
   });
