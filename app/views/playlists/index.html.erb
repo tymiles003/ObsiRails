@@ -14,7 +14,7 @@
 <% @playlists.each do |playlist| %>
   <ul>
   <% playlist.tracks.each do |track| %>
-    <strong><%= track.title %></strong> <em>( <%= track.music.title %>)</em><br />
+    <strong><%= track.number %>. <%= track.title %></strong> <em>( <%= track.music.title %>)</em><br />
   <% end %>
 <% end %>
 

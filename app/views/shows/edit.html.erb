@@ -1,6 +1,12 @@
-<h1>Editing Show</h1>
+<div class="divider divider-centered">
+  <h2>Editing Show</h2>
+</div>
 
-<%= render 'form' %>
-
+<div class="admin">
 <%= link_to 'Show', @show %> |
 <%= link_to 'Back', shows_path %>
+</div>
+
+<section class="edition">
+<%= render 'form' %>
+</section>
