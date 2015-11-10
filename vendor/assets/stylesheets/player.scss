@@ -1,0 +1,221 @@
+/****************
+ * Player Audio *
+ ****************/
+@media screen and (max-width: 720px) {
+    #caret,
+    #playlist li:nth-child(3),
+    #playlist li:nth-child(4) {
+        display: none;
+    }   
+    #cover {
+        margin-left: -50x;
+        z-index: -1;
+        opacity: .5;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #time {
+        display: none;   
+    }
+}
+
+.mini {
+    margin-left: -50px;
+    z-index: -1;
+    opacity: .5;
+}
+
+
+#player {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  color: #fff;
+  align-items: center;
+
+  i {
+    flex-basis: 50px;
+    color: rgba(255,255,255,.7);
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+  
+  #prev {text-align: right;transform: scaleY(0.7);}
+  #play {color:#fff;text-align: center;}
+  #next {text-align: left;transform: scaleY(0.7);}
+
+  #cover {width: 50px;height:50px;}
+  
+  #percent {
+    flex: 1;
+    background: -webkit-linear-gradient(left, #111 0%, transparent 0%);
+    background: -moz-linear-gradient(left, #111 0%, transparent 0%);
+    background: -ms-linear-gradient(left, #111 0%,  transparent 0%);
+    background: linear-gradient(left, #111 0%,  transparent 0%);
+  }
+  
+  #timeline {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    background: -webkit-linear-gradient(left, #333 0%, transparent 0%);
+    background: -moz-linear-gradient(left, #333 0%, transparent 0%);
+    background: -ms-linear-gradient(left, #333 0%, transparent 0%);
+    background: linear-gradient(left, #333 0%, transparent 0%);
+    height: 50px;
+  }
+  
+  #title, #time {
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+  
+  #title {color: #fff;flex:1;padding-left: 20px;}
+  #time {flex-basis: 100px;text-align: center;}
+  
+  #btn-vol, #togglepl, #caret {color: #fff;text-align: center;}
+  
+  #btn-vol {flex-basis: 25px;}
+  #togglepl {flex-basis: 40px;}
+  #caret {background:#333;padding-top: 17px;padding-bottom: 17px;padding-left: 5px;flex-basis:15px;}
+  
+  #clearer-g, #clearer-d {
+    height: 50px;
+    width: 10px;
+  }
+}
+
+
+#playlist {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 50px;
+  width: 100%;
+  flow-direction: column;
+  background-color: #eee;
+  color: #333;
+  transform: scaleY(0);
+  transition: all .25s ease;
+  transform-origin: 50% 100%;
+  max-height: 325px;
+  overflow: auto;
+  z-index: 1;
+  
+  ul {
+    display: flex;
+    list-style: none;
+    border-bottom: 1px solid #CCC;
+    cursor: pointer;
+    width: 100%;
+  }
+  .active-pl {
+    background: rgba(0,0,0,.05);
+  }
+  
+  li {
+    padding: 10px 10px;
+    font-size: 1em;
+    font-size: 0.9em;
+    &:nth-child(2) {
+      flex: 1;
+      color: #000;
+    }
+    &:nth-child(3) {
+      font-size: 0.8em;
+      flex: 1;
+    }
+    &:nth-child(4) {
+      font-size: 0.8em;
+    }
+  }
+}
+
+#volume {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    right: 55px;
+    width: 50px;
+    height: 190px;
+    padding-top: 10px;
+    background: #000;
+    z-index: 2;
+}
+
+input[type='range'] {
+    -webkit-appearance: none;
+
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    
+    transform-origin: 50% 50%;
+    width: 130px;
+    height: 50px;
+    margin-left: -40px;
+    margin-top: 40px;
+    background-color: #000;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    z-index: -1;
+    width: 3px;
+    height: 2px;
+    background: #111;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  /* only Firefox & Chrome/ Opera */
+  background-image: linear-gradient(90deg, #fff, #fff);
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    margin-top: -6px;
+}
+
+input[type='range']::-moz-range-track {
+    z-index: -1;
+    width: 130px;
+    height: 2px;
+    background: #111;
+}
+
+input[type='range']::-moz-range-track {
+  /* only Firefox & Chrome/ Opera */
+  background-image: linear-gradient(90deg, #fff, #fff);
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+}
+
+
+input[type='range']::-moz-range-thumb {
+    z-index: 50;    
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    margin-top: -6px;
+}
+
+
+input[type='range']:focus {
+    outline: none;
+}

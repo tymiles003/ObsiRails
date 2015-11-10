@@ -16,3 +16,4 @@
 //= require ckeditor/init
 //= require jquery.nested-fields
 //= require lightbox
+//= require player

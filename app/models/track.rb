@@ -4,6 +4,7 @@ class Track < ActiveRecord::Base
 
   belongs_to :music
   has_attached_file :file
+  has_and_belongs_to_many :playlists
   
   validates_attachment_content_type :file, :content_type => ['audio/mp3']
 

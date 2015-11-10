@@ -1,0 +1,21 @@
+.playlist {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  strong {
+    color: #fff;
+  }
+  em {
+    color: rgba(255,255,255,.7);
+    position: absolute;
+    left: 300px;
+  }
+}
+
+select {
+  height: 400px;
+}
+
+.hidden {
+  display: none;
+}

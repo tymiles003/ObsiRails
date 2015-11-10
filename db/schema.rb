@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108141051) do
+ActiveRecord::Schema.define(version: 20151109154856) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -72,6 +72,16 @@ ActiveRecord::Schema.define(version: 20151108141051) do
   create_table "photos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "playlists_tracks", force: :cascade do |t|
+    t.integer "playlist_id"
+    t.integer "track_id"
   end
 
   create_table "roles", force: :cascade do |t|

@@ -1,21 +1,31 @@
 <nav class="nav" role="navigation">
   <ul>
+    
+    <% if !user_signed_in? %>
     <li><%= link_to_unless_current 'Home', root_path %></li>
     <li><%= link_to_unless_current 'Bio', '/bio' %></li>
+    <% end %>
+    
     <li><%= link_to_unless_current 'Photos', photos_path %></li>
     <li class="sub-menu"><%= link_to_unless_current 'Music', musics_path %>
-
       <% @musics=Music.all.order(:release).reverse %>
       <ul>
       <% @musics.each do |music| %>
         <li><%= link_to music.title, music %></li>
       <% end %>
       </ul>
-
     </li>
     <li><%= link_to_unless_current 'Videos', videos_path %></li>
     <li><%= link_to_unless_current 'News', news_index_path %></li>
     <li><%= link_to_unless_current 'Tour', shows_path %></li>
+    
+    <% if !user_signed_in? %>
     <li><%= link_to_unless_current 'Contact', contact_path %></li>
+    <% end %>
+    
+    <% if user_signed_in? %>
+    <li><%= link_to_unless_current 'Playlist', playlists_path %></li>
+    <% end %>
+    
   </ul>
 </nav>

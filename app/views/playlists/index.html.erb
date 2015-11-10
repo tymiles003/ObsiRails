@@ -1,0 +1,21 @@
+<div class="divider divider-centered">
+  <h2>Playlist</h2>
+</div>
+
+<div class="admin">
+  <% @playlists.each do |playlist| %>
+      <%= link_to 'Edit', edit_playlist_path(playlist) %>
+      <%= link_to 'Destroy', playlist, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>
+
+<section class="playlist">
+
+<% @playlists.each do |playlist| %>
+  <ul>
+  <% playlist.tracks.each do |track| %>
+    <strong><%= track.title %></strong> <em>( <%= track.music.title %>)</em><br />
+  <% end %>
+<% end %>
+
+</section>
