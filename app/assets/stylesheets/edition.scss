@@ -1,0 +1,13 @@
+.edition {
+  background: rgba(0,0,0,.65);
+  color: #fff;
+  
+  a {
+    transition: all .25s ease;
+    color: orange;
+    &:hover {
+      transition: all .25s ease;
+      color: red;
+    }
+  }
+}
